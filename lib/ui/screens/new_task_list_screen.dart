@@ -36,7 +36,7 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: _onTapAddNewTaskButton,
         child: Icon(Icons.add),
       ),
     );

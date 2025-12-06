@@ -26,6 +26,7 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
               children: [
                 const SizedBox(height: 36),
                 Text('Add New Task', style: TextTheme.of(context).titleLarge),
+                const SizedBox(height: 8,),
                 TextFormField(decoration: InputDecoration(hintText: 'Title')),
                 TextFormField(
                   maxLines: 5,
