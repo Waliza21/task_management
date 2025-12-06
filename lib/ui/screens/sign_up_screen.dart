@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/data/services/network_caller.dart';
+import 'package:task_management/data/utils/urls.dart';
 import 'package:task_management/ui/widgets/screen_background.dart';
 import 'package:task_management/ui/widgets/snackbar_message.dart';
 
@@ -104,9 +105,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                   ),
                   SizedBox(height: 8),
-                  FilledButton(
-                    onPressed: _onTapSignUpButton,
-                    child: Icon(Icons.arrow_circle_right_outlined),
+                  Visibility(
+                    visible: _signUpInProgress == false,
+                    replacement: Center(child: CircularProgressIndicator()),
+                    child: FilledButton(
+                      onPressed: _onTapSignUpButton,
+                      child: Icon(Icons.arrow_circle_right_outlined),
+                    ),
                   ),
                   Center(
                     child: RichText(
@@ -159,14 +164,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
     };
 
     NetworkResponse response = await NetworkCaller.postRequest(
-      'http://35.73.30.144:2005/api/v1/Registration',
+      Urls.registrationUrl,
       body: requestBody,
     );
 
+    _signUpInProgress = false;
+    setState(() {});
     if (response.isSuccess) {
+      _clearTextFields();
       showSnackbarMessage(context, 'Registration successful!Please sign in');
     } else {
       showSnackbarMessage(context, response.errorMessage);
     }
+  }
+
+  void _clearTextFields() {
+    _emailTEController.clear();
+    _firstNameTEController.clear();
+    _lastNameTEController.clear();
+    _mobileTEController.clear();
+    _passwordTEController.clear();
+  }
+
+  @override
+  void dispose() {
+    _emailTEController.dispose();
+    _firstNameTEController.dispose();
+    _lastNameTEController.dispose();
+    _mobileTEController.dispose();
+    _passwordTEController.dispose();
+    super.dispose();
   }
 }
