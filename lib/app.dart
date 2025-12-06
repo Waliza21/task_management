@@ -11,6 +11,7 @@
 //this is the only file where classname and filename won't match.
 
 import 'package:flutter/material.dart';
+import 'package:task_management/ui/screens/forgot_password_email_screen.dart';
 import 'package:task_management/ui/screens/sign_in_screen.dart';
 import 'package:task_management/ui/screens/sign_up_screen.dart';
 import 'package:task_management/ui/screens/splash_screen.dart';
@@ -61,6 +62,14 @@ class TaskManagerApp extends StatelessWidget {
             ),
           ),
         ),
+        textTheme: TextTheme(
+          titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+          labelMedium: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: Colors.grey,
+          ),
+        ),
       ),
 
       // home: SplashScreen(),
@@ -68,6 +77,7 @@ class TaskManagerApp extends StatelessWidget {
         SplashScreen.name: (_) => SplashScreen(), //_ is to ignore ctx/context
         SignInScreen.name: (_) => SignInScreen(),
         SignUpScreen.name: (_) => SignUpScreen(),
+        ForgotPasswordEmailScreen.name: (_) => ForgotPasswordEmailScreen(),
       },
       initialRoute: SplashScreen.name,
     );

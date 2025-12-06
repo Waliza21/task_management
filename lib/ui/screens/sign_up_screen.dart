@@ -25,7 +25,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 60),
               Text(
                 "Join With Us",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                style: Theme.of(context).textTheme.titleLarge,
+                ///theme e jeta define kore ashchi sheta overwrite korte chaile
+                // style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                //   fontWeight: FontWeight.w900,
+                // ),
               ),
               SizedBox(height: 8),
               TextFormField(decoration: InputDecoration(hintText: "Email")),
