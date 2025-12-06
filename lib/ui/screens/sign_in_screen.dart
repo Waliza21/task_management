@@ -1,9 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/ui/screens/sign_up_screen.dart';
 import 'package:task_management/ui/widgets/screen_background.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
+
+  static const String name = '/sign-in';
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -58,6 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             recognizer:
                                 TapGestureRecognizer()
                                   ..onTap = _onTapSignUpButton,
+                            //.. - cascade notation - direct access korar jonno kono property,akta dot diye access, 2 ta dot diye initialize
                           ),
                         ],
                       ),
@@ -74,5 +78,11 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void _onTapSignInButton() {}
   void _onTapForgotPasswordButton() {}
-  void _onTapSignUpButton() {}
+  void _onTapSignUpButton() {
+    Navigator.pushNamed(context, SignUpScreen.name);
+  }
 }
+
+
+//infinity - choltei thakbe
+//maxfinite - jototuku jete parbe tototuku jabe
