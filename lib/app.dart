@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:task_management/ui/screens/forgot_password_email_screen.dart';
 import 'package:task_management/ui/screens/forgot_password_reset_password_screen.dart';
 import 'package:task_management/ui/screens/forgot_password_verify_otp_screen.dart';
+import 'package:task_management/ui/screens/main_bottom_nav_holder_screen.dart';
 import 'package:task_management/ui/screens/sign_in_screen.dart';
 import 'package:task_management/ui/screens/sign_up_screen.dart';
 import 'package:task_management/ui/screens/splash_screen.dart';
@@ -72,6 +73,7 @@ class TaskManagerApp extends StatelessWidget {
             color: Colors.grey,
           ),
         ),
+        scaffoldBackgroundColor: Colors.green.shade50
       ),
 
       // home: SplashScreen(),
@@ -82,6 +84,7 @@ class TaskManagerApp extends StatelessWidget {
         ForgotPasswordEmailScreen.name: (_) => ForgotPasswordEmailScreen(),
         ForgotPasswordVerifyOtpScreen.name: (_) => ForgotPasswordVerifyOtpScreen(),
         ForgotPasswordResetPasswordScreen.name: (_) => ForgotPasswordResetPasswordScreen(),
+        MainBottomNavHolderScreen.name: (_) => MainBottomNavHolderScreen(),
       },
       initialRoute: SplashScreen.name,
     );
