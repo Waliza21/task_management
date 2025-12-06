@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/ui/widgets/photo_picker.dart';
 import 'package:task_management/ui/widgets/screen_background.dart';
 import 'package:task_management/ui/widgets/tm_app_bar.dart';
 
@@ -16,7 +17,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TMAppBar(),
+      appBar: TMAppBar(fromUpdateProfile: true),
       body: ScreenBackground(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -28,20 +29,21 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               Text(
                 "Update Profile",
                 style: Theme.of(context).textTheme.titleLarge,
-          
+
                 ///theme e jeta define kore ashchi sheta overwrite korte chaile
                 // style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 //   fontWeight: FontWeight.w900,
                 // ),
               ),
               SizedBox(height: 8),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll<Color>(Colors.grey),
-                ),
-                onPressed: () {},
-                child: Text('Photo', style: TextStyle(color: Colors.black)),
-              ),
+              GestureDetector(onTap: () {}, child: PhotoPicker()),
+              // TextButton(
+              //   style: ButtonStyle(
+              //     backgroundColor: WidgetStatePropertyAll<Color>(Colors.grey),
+              //   ),
+              //   onPressed: () {},
+              //   child: Text('Photo', style: TextStyle(color: Colors.black)),
+              // ),
               TextFormField(decoration: InputDecoration(hintText: "Email")),
               TextFormField(
                 decoration: InputDecoration(hintText: "First Name"),
@@ -51,27 +53,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               TextFormField(decoration: InputDecoration(hintText: "Password")),
               SizedBox(height: 8),
               FilledButton(
-                onPressed: _onTapSignUpButton,
+                onPressed: _onTapUpdateButton,
                 child: Icon(Icons.arrow_circle_right_outlined),
-              ),
-              Center(
-                child: RichText(
-                  text: TextSpan(
-                    text: "Already have an account? ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: "Sign In",
-                        style: TextStyle(color: Colors.green),
-                        recognizer:
-                            TapGestureRecognizer()..onTap = _onTapSignInButton,
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ],
           ),
@@ -80,9 +63,5 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     );
   }
 
-  void _onTapSignInButton() {
-    Navigator.pop(context);
-  }
-
-  void _onTapSignUpButton() {}
+  void _onTapUpdateButton() {}
 }
