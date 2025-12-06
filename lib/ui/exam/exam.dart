@@ -18,8 +18,8 @@ class _FoodRecipesState extends State<FoodRecipes> {
         itemBuilder: (context, index) {
           return ListTile(
             leading: Icon(Icons.food_bank),
-            title: Text(recipes.foodTitle),
-            subtitle: Text(recipes.description),
+            // title: Text(recipes["foodTi"]),
+            // subtitle: Text(recipes.description),
           );
         },
       ),

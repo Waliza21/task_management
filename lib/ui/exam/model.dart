@@ -1,12 +1,16 @@
-class Recipes {
+class Recipe {
   final String foodTitle;
   final String description;
   final String ingredients;
 
-  Recipes({required this.foodTitle, required this.description, required this.ingredients});
+  Recipe({
+    required this.foodTitle,
+    required this.description,
+    required this.ingredients,
+  });
 
-  factory Recipes.fromJson(Map<String, dynamic> json) {
-    return Recipes(
+  factory Recipe.fromJson(Map<String, dynamic> json) {
+    return Recipe(
       foodTitle: json['foodTitle'] as String,
       description: json['description'] as String,
       ingredients: json['ingredients'] as String,
@@ -20,4 +24,10 @@ class Recipes {
       'ingredients': ingredients,
     };
   }
+}
+
+class Recipes {
+  late List<Recipe> recipes;
+
+  Recipes(this.recipes);
 }
