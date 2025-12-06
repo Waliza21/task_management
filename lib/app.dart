@@ -11,6 +11,7 @@
 //this is the only file where classname and filename won't match.
 
 import 'package:flutter/material.dart';
+import 'package:task_management/ui/screens/add_new_task_screen.dart';
 import 'package:task_management/ui/screens/forgot_password_email_screen.dart';
 import 'package:task_management/ui/screens/forgot_password_reset_password_screen.dart';
 import 'package:task_management/ui/screens/forgot_password_verify_otp_screen.dart';
@@ -85,6 +86,7 @@ class TaskManagerApp extends StatelessWidget {
         ForgotPasswordVerifyOtpScreen.name: (_) => ForgotPasswordVerifyOtpScreen(),
         ForgotPasswordResetPasswordScreen.name: (_) => ForgotPasswordResetPasswordScreen(),
         MainBottomNavHolderScreen.name: (_) => MainBottomNavHolderScreen(),
+        AddNewTaskScreen.name: (_) => AddNewTaskScreen(),
       },
       initialRoute: SplashScreen.name,
     );
