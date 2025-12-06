@@ -45,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   children: [
                     TextButton(
                       onPressed: _onTapForgotPasswordButton,
-                      child: Text('Forgot Passowrd?'),
+                      child: Text('Forgot Password?'),
                     ),
                     RichText(
                       text: TextSpan(
