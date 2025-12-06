@@ -6,7 +6,7 @@ import 'package:http/http.dart';
 class NetworkCaller {
   //ei file e http package ke isolate kore felbo. do is also a famous package
 
-  Future<NetworkResponse> getRequest(String url) async {
+  static Future<NetworkResponse> getRequest(String url) async {
     try {
       Uri uri = Uri.parse(url);
 
@@ -36,9 +36,9 @@ class NetworkCaller {
     }
   }
 
-  Future<NetworkResponse> postRequest(
+  static Future<NetworkResponse> postRequest(
     String url,
-    Map<String, dynamic>? body,
+    {Map<String, dynamic>? body,}
   ) async {
     try {
       Uri uri = Uri.parse(url);
@@ -73,14 +73,14 @@ class NetworkCaller {
     }
   }
 
-  void _logRequest(String url, {Map<String, dynamic>? body}) {
+  static void _logRequest(String url, {Map<String, dynamic>? body}) {
     debugPrint(
       'URL:$url\n'
       'Body: $body',
     );
   }
 
-  void _logResponse(String url, Response response) {
+  static void _logResponse(String url, Response response) {
     debugPrint(
       'URL:$url\n'
       'Status COde:${response.statusCode}\n'
@@ -93,12 +93,12 @@ class NetworkResponse {
   final bool isSuccess;
   final int responseCode;
   final dynamic body; //nao thakte pare tai dynamic
-  final String? errorMessage;
+  final String errorMessage;
 
   NetworkResponse({
     required this.isSuccess,
     required this.responseCode,
     this.body, //required na as nao thakte pare
-    this.errorMessage, //required na as nao thakte pare
+    this.errorMessage='Something went wrong', //required na as nao thakte pare
   });
 }
