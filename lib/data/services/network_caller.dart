@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 class NetworkCaller {
-  //ei file e http package ke isolate kore felbo. do is also a famous package
+  //ei file e http package ke isolate kore felbo. DO is also a famous package
 
   static Future<NetworkResponse> getRequest(String url) async {
     try {
@@ -85,7 +85,7 @@ class NetworkCaller {
   static void _logResponse(String url, Response response) {
     debugPrint(
       'URL:$url\n'
-      'Status COde:${response.statusCode}\n'
+      'Status Code:${response.statusCode}\n'
       'Body: ${response.body}',
     );
   }

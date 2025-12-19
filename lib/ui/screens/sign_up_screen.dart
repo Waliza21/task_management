@@ -55,6 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (value?.trim().isEmpty ?? true) {
                         return 'Enter your email';
                       }
+                      //EmailValidator - email validator package, built with regex.
                       if (EmailValidator.validate(value!) == false) {
                         return 'Enter a valid email address';
                       }
@@ -92,13 +93,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                   ),
                   TextFormField(
+                    
                     controller: _passwordTEController,
                     decoration: InputDecoration(hintText: "Password"),
                     validator: (String? value) {
                       if (value?.isEmpty ?? true) {
                         return 'Enter your password';
                       }
-                      if (value!.length < 6) {
+                      if (value!.length < 7) {
                         return 'Enter a password more than 6 letters';
                       }
                       return null;
@@ -185,6 +187,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     _mobileTEController.clear();
     _passwordTEController.clear();
   }
+
+
+//memory efficient korar jonno, save korar jonno, memory leak jeno na hoy shejonno dispose korte hoy controller gula ke, tahole faster hobe.
 
   @override
   void dispose() {
