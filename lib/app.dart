@@ -27,6 +27,7 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       //colorschemeseed diye green er bibhinno shade generate korbe throughout the app.
       theme: ThemeData(
         colorSchemeSeed: Colors.green,

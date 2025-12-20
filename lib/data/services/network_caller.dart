@@ -104,3 +104,8 @@ class NetworkResponse {
     this.errorMessage='Something went wrong', //required na as nao thakte pare
   });
 }
+
+
+//jwt token, access token. 3ta part - header, payload/body, secret.
+//local database 2 type er. 1. cache type er database- memory er porer layer, lightweight data rakhi amra cache e, kb size er, 2. persistence database - file drive memory te giye disk e rakhe. 3. Hive/sqlight.
+//amra cache use korbo for faster use, shared_preference plugin use korbo.
