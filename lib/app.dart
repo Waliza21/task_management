@@ -11,6 +11,8 @@
 //this is the only file where classname and filename won't match.
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:task_management/ui/providers/sign_in_provider.dart';
 import 'package:task_management/ui/screens/add_new_task_screen.dart';
 import 'package:task_management/ui/screens/forgot_password_email_screen.dart';
 import 'package:task_management/ui/screens/forgot_password_reset_password_screen.dart';
@@ -26,72 +28,77 @@ class TaskManagerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      //colorschemeseed diye green er bibhinno shade generate korbe throughout the app.
-      theme: ThemeData(
-        colorSchemeSeed: Colors.green,
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: Colors.white,
-          hintStyle: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey),
-          contentPadding: EdgeInsets.symmetric(horizontal: 16),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        filledButtonTheme: FilledButtonThemeData(
-          style: FilledButton.styleFrom(
-            fixedSize: Size.fromWidth(double.maxFinite),
-            backgroundColor: Colors.green,
-            foregroundColor: Colors.white,
-            padding: EdgeInsets.symmetric(vertical: 12),
-            shape: RoundedRectangleBorder(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>SignInProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        //colorschemeseed diye green er bibhinno shade generate korbe throughout the app.
+        theme: ThemeData(
+          colorSchemeSeed: Colors.green,
+          inputDecorationTheme: InputDecorationTheme(
+            filled: true,
+            fillColor: Colors.white,
+            hintStyle: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey),
+            contentPadding: EdgeInsets.symmetric(horizontal: 16),
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-        ),
-        textTheme: TextTheme(
-          titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-          labelMedium: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: Colors.grey,
+          filledButtonTheme: FilledButtonThemeData(
+            style: FilledButton.styleFrom(
+              fixedSize: Size.fromWidth(double.maxFinite),
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+              padding: EdgeInsets.symmetric(vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
           ),
+          textTheme: TextTheme(
+            titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            labelMedium: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey,
+            ),
+          ),
+          scaffoldBackgroundColor: Colors.green.shade50
         ),
-        scaffoldBackgroundColor: Colors.green.shade50
+      
+        // home: SplashScreen(),
+        routes: <String, WidgetBuilder>{
+          SplashScreen.name: (_) => SplashScreen(), //_ is to ignore ctx/context
+          SignInScreen.name: (_) => SignInScreen(),
+          SignUpScreen.name: (_) => SignUpScreen(),
+          ForgotPasswordEmailScreen.name: (_) => ForgotPasswordEmailScreen(),
+          ForgotPasswordVerifyOtpScreen.name: (_) => ForgotPasswordVerifyOtpScreen(),
+          ForgotPasswordResetPasswordScreen.name: (_) => ForgotPasswordResetPasswordScreen(),
+          MainBottomNavHolderScreen.name: (_) => MainBottomNavHolderScreen(),
+          AddNewTaskScreen.name: (_) => AddNewTaskScreen(),
+          UpdateProfileScreen.name: (_) => UpdateProfileScreen(),
+        },
+        initialRoute: SplashScreen.name,
       ),
-
-      // home: SplashScreen(),
-      routes: <String, WidgetBuilder>{
-        SplashScreen.name: (_) => SplashScreen(), //_ is to ignore ctx/context
-        SignInScreen.name: (_) => SignInScreen(),
-        SignUpScreen.name: (_) => SignUpScreen(),
-        ForgotPasswordEmailScreen.name: (_) => ForgotPasswordEmailScreen(),
-        ForgotPasswordVerifyOtpScreen.name: (_) => ForgotPasswordVerifyOtpScreen(),
-        ForgotPasswordResetPasswordScreen.name: (_) => ForgotPasswordResetPasswordScreen(),
-        MainBottomNavHolderScreen.name: (_) => MainBottomNavHolderScreen(),
-        AddNewTaskScreen.name: (_) => AddNewTaskScreen(),
-        UpdateProfileScreen.name: (_) => UpdateProfileScreen(),
-      },
-      initialRoute: SplashScreen.name,
     );
   }
 }
