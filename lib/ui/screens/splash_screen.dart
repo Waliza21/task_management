@@ -49,3 +49,4 @@ class _SplashScreenState extends State<SplashScreen> {
 
 //assets/images/background.svg - this is called magicString, this is also a code smell, for this - utils folder khule shekhane asset paths file khule shkehane variable akare class er moddhe rekhe dilam, ete ei image change korte hole, okhane path ta change kore dilei joto jaygay eta use hobe toto jaygay auto change hobe.
 //userDefaults in ios, shared preferences in android --- kothay caching hoy shared preferences use korle
+//shared preference e kom weighted and kom value rakhte hobe karon nahole eta heavy hoye jabe and jokhn initialize kora hobe tokhn shob key value paor uthaye niye ashar karone ota initialize korte time lage jodi bhitore beshi values store kora thake.
