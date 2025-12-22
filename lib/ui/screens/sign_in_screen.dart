@@ -25,7 +25,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final SignInProvider _signInProvider = SignInProvider();
   @override
   Widget build(BuildContext context) {
-    return Provider(
+    return ChangeNotifierProvider(
       create: (_)=>_signInProvider,
       child: Scaffold(
         body: ScreenBackground(
