@@ -172,3 +172,11 @@ class _SignInScreenState extends State<SignInScreen> {
 //infinity - choltei thakbe
 //maxfinite - jototuku jete parbe tototuku jabe
 //app e plugin add korle project rerun dite hobe.
+
+
+//jwt token - token er 3 ta part, header(kon algorithm),json,secret(eta diye token ta lock and unlock kora jay).
+//variable gula in memory jayga ney- shobcheye faster.
+//then cache memory- 2nd faster. (8-10 kb er data)
+//then persistence database- latency beshi - sqlite,hive etc.
+//shared preference - cache memory
+//plugin add korle app rerun kora lage, method channel ta shurute initialize hoy arki

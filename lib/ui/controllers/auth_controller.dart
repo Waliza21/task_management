@@ -7,7 +7,7 @@ class AuthController {
   //nicher jayga gulay magicString er usage omit korar jonno ebhabe define kore nisi, moreover jate bhool o na hoy.
   static final String _tokenKey = 'token';
   static final String _userKey = 'user';
-
+ 
   static String? accessToken;
   static UserModel? user;
 
@@ -36,6 +36,6 @@ class AuthController {
 
   static Future<void> clearUserData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.clear();
+    sharedPreferences.clear(); //jehetu echara r kono data nai, data thakle remove diye key dhore remove korte partam.
   }
 }

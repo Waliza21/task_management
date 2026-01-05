@@ -33,6 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             padding: const EdgeInsets.all(24.0),
             child: Form(
               key: _formKey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 8,
@@ -106,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Visibility(
                     visible: _signUpInProgress == false,
                     replacement: Center(child: CircularProgressIndicator()),
